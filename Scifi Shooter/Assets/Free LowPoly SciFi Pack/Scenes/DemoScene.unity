@@ -317,6 +317,7 @@ MonoBehaviour:
   playerSpeed: 5
   gravity: 9.81
   groundCheck: {fileID: 143295514}
+  jumpHeight: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 256

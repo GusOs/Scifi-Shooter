@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     //Sensibilidad del ratón
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 65f;
 
     //Variable transform del player
     public Transform playerTransform;

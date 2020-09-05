@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Velocidad del player
-    public float playerSpeed = 5f;
+    public float playerSpeed = 3f;
 
     //Gravedad del player
     public float gravity = 9.81f;
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(movementDirection * playerSpeed * Time.deltaTime);
 
-        if(isAbleToJump)
+        if(isAbleToJump && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * -gravity);
         }

@@ -38,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     //Si salta
     private bool isAbleToJump;
 
+    //Vida del jugador
+    public float lifePlayer = 100f;
+
     void Start()
     {
         //Referencia del characterController

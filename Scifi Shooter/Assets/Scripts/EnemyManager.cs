@@ -1,6 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -13,6 +16,7 @@ public class EnemyManager : MonoBehaviour
     //Animator del enemigo
     public Animator anim;
 
+    //Vida del enemigo
     public float enemyLife = 100f;
 
     UnityEngine.AI.NavMeshAgent nav;
@@ -41,13 +45,14 @@ public class EnemyManager : MonoBehaviour
             anim.SetBool("Idle_guard_AR", false);
             if (direction.magnitude > 8)
             {
-                nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+                nav = GetComponent<NavMeshAgent>();
                 nav.SetDestination(player.position);
                 anim.SetBool("Shoot_Autoshot_AR", true);
             }
             else
             {
-                anim.SetBool("Run_guard_AR", false);
+                anim.SetBool("Run_guard_AR", true);
+                anim.SetBool("Shoot_Autoshot_AR", false);
             }
         }
         else

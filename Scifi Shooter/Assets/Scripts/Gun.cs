@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
     public Transform playerCamera;
 
     //Distancia de disparo
-    public float shootDistance = 10f;
+    public float shootDistance = 30f;
 
     //Variable Raycast
     private RaycastHit shootRaycastHit;
@@ -19,6 +19,9 @@ public class Gun : MonoBehaviour
 
     //Efecto de colisión de disparo
     public GameObject hitEffect;
+
+    //Daño del arma
+    public float weaponDamage= 5f;
 
     // Update is called once per frame
     void Update()

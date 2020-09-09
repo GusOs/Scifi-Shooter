@@ -1216,6 +1216,7 @@ MonoBehaviour:
   shootParticles: {fileID: 99490235}
   hitEffect: {fileID: 100002, guid: ba261927bb2ae4244b20b0eb77a96415, type: 3}
   weaponDamage: 5
+  shoot: {fileID: 11400000, guid: 0d2b11156ec84ab4394d9f47aa2a1f98, type: 2}
 --- !u!1 &1826432883
 GameObject:
   m_ObjectHideFlags: 0

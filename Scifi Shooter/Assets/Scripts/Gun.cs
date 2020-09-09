@@ -23,6 +23,9 @@ public class Gun : MonoBehaviour
     //Daño del arma
     public float weaponDamage= 5f;
 
+    //Audio disparo
+    public Sound shoot;
+
     // Update is called once per frame
     void Update()
     {
@@ -35,8 +38,9 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         shootParticles.Play();
+        AudioManager.Instance.PlaySound(shoot);
 
-        if(Physics.Raycast(playerCamera.position, playerCamera.forward, out shootRaycastHit, shootDistance, shootMask))
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out shootRaycastHit, shootDistance, shootMask))
         {
             Instantiate(hitEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
         }

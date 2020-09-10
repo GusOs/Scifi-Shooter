@@ -31,7 +31,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     /*Si la posición del jugador respecto al enemigo es menor que la distancia
      * Siempre busca al jugador
-     * si la dirección es mayor de 5, cambia de animación
+     * si la dirección es mayor de 8, cambia de animación
     */
     void Update()
     {

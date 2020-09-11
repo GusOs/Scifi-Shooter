@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ItemLife : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Collider keyCollision;
+
     void Start()
     {
-        
+        keyCollision = GetComponent<Collider>();
     }
 
-    // Update is called once per frame
-    void Update()
+    //Comprobar si ha colisionado
+    private void OnTriggerEnter(Collider keyCollision)
     {
-        
+        if (keyCollision.CompareTag("Player"))
+        {
+            //sound effect
+            //GameManager.Instance.SetScoreKey(); //add life
+            this.gameObject.SetActive(false);
+        }
     }
 }

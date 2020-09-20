@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
-            anim.SetBool("Idle_guard_AR", false);
+            anim.SetBool("Idle_Guard_AR", false);
             if (direction.magnitude > 8)
             {
                 nav = GetComponent<NavMeshAgent>();
@@ -57,7 +57,7 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            anim.SetBool("Idle_guard_AR", true);
+            anim.SetBool("Idle_Guard_AR", true);
             anim.SetBool("Run_guard_AR", false);
             anim.SetBool("Shoot_Autoshot_AR", false);
         }  

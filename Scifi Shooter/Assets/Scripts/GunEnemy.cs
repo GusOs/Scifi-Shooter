@@ -39,9 +39,9 @@ public class GunEnemy : MonoBehaviour
         shootParticles.Play();
         AudioManager.Instance.PlaySound(shoot);
 
-        /*if (Physics.Raycast(playerCamera.position, playerCamera.forward, out shootRaycastHit, shootDistance, shootMask))
+        if (Physics.Raycast(transform.position, transform.forward, out shootRaycastHit, shootDistance, shootMask))
         {
             Instantiate(hitEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
-        }*/
+        }
     }
 }

@@ -21,11 +21,15 @@ public class EnemyManager : MonoBehaviour
 
     UnityEngine.AI.NavMeshAgent nav;
 
+    NavMeshAgent ourenemy;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        nav = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -42,27 +46,30 @@ public class EnemyManager : MonoBehaviour
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
-            anim.SetBool("Run_guard_AR", false);
-            if (direction.magnitude > 8)
+            anim.SetTrigger("Run_guard_AR");
+            nav.speed = 2.5f;
+            if (direction.magnitude < 10)
             {
                 nav = GetComponent<NavMeshAgent>();
                 nav.SetDestination(player.position);
-                anim.SetBool("Shoot_Autoshot_AR", true);
+                nav.speed = 0;
+                anim.SetTrigger("Shoot_Autoshot_AR");
             }
             else
             {
-                anim.SetBool("Run_guard_AR", true);
-                anim.SetBool("Shoot_Autoshot_AR", false);
+                anim.SetTrigger("Run_guard_AR");
+                nav.speed = 2.5f;
             }
             if(enemyLife == 0)
             {
-                anim.SetBool("Die", true);
+                anim.SetTrigger("Die");
+                nav.speed = 0;
             }
         }
         else
         {
-            anim.SetBool("Run_guard_AR", true);
-            anim.SetBool("Shoot_Autoshot_AR", false);
+            anim.SetTrigger("Run_guard_AR");
+            nav.speed = 2.5f;
         }  
     }
 }

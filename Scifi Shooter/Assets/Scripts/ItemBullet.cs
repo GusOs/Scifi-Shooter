@@ -17,7 +17,7 @@ public class ItemBullet : MonoBehaviour
         if (keyCollision.CompareTag("Player"))
         {
             //sound effect
-            //GameManager.Instance.SetScoreKey(); //Add munition
+            //GameManager.Instance.SetMunition(); //Add munition
             this.gameObject.SetActive(false);
         }
     }

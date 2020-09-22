@@ -54,6 +54,7 @@ public class EnemyManager : MonoBehaviour
                 nav.SetDestination(player.position);
                 nav.speed = 0;
                 anim.SetTrigger("Shoot_Autoshot_AR");
+                GunEnemy.Instance.Shoot();
             }
             else
             {

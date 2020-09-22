@@ -17,7 +17,7 @@ public class ItemLife : MonoBehaviour
         if (keyCollision.CompareTag("Player"))
         {
             //sound effect
-            //GameManager.Instance.SetScoreKey(); //add life
+            //GameManager.Instance.SetLife(); //add life
             this.gameObject.SetActive(false);
         }
     }

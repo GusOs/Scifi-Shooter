@@ -16,10 +16,7 @@ public class EnemyManager : MonoBehaviour
     //Animator del enemigo
     public Animator anim;
 
-    //Vida del enemigo
-    public float enemyLife = 100f;
-
-    UnityEngine.AI.NavMeshAgent nav;
+    UnityEngine.AI.NavMeshAgent enemy;
 
     NavMeshAgent ourenemy;
 
@@ -29,7 +26,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        nav = GetComponent<NavMeshAgent>();
+        enemy = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -46,31 +43,12 @@ public class EnemyManager : MonoBehaviour
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
-            anim.SetTrigger("Run_guard_AR");
-            nav.speed = 2.5f;
             if (direction.magnitude < 10)
             {
-                nav = GetComponent<NavMeshAgent>();
-                nav.SetDestination(player.position);
-                nav.speed = 0;
-                anim.SetTrigger("Shoot_Autoshot_AR");
-                GunEnemy.Instance.Shoot();
+                 enemy = GetComponent<NavMeshAgent>();
+                 enemy.SetDestination(player.position);
+                 anim.SetBool("idle", true);
             }
-            else
-            {
-                anim.SetTrigger("Run_guard_AR");
-                nav.speed = 2.5f;
-            }
-            if(enemyLife == 0)
-            {
-                anim.SetTrigger("Die");
-                nav.speed = 0;
-            }
-        }
-        else
-        {
-            anim.SetTrigger("Run_guard_AR");
-            nav.speed = 2.5f;
-        }  
+        } 
     }
 }

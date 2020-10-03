@@ -20,11 +20,12 @@ public class Gun : MonoBehaviour
     //Efecto de colisión de disparo
     public GameObject hitEffect;
 
-    //Daño del arma
-    public float weaponDamage= 5f;
-
     //Audio disparo
     public Sound shoot;
+
+    public float impactForce = 5f;
+
+    public GameObject destroyEffect;
 
     // Update is called once per frame
     void Update()
@@ -42,7 +43,20 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(playerCamera.position, playerCamera.forward, out shootRaycastHit, shootDistance, shootMask))
         {
-            Instantiate(hitEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
+            Instantiate(hitEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal), shootRaycastHit.transform);
+
+
+            if (shootRaycastHit.collider.GetComponent<Rigidbody>() != null)
+            {
+                shootRaycastHit.collider.GetComponent<Rigidbody>().AddForce(-shootRaycastHit.normal * impactForce);
+            }
+
+            if (shootRaycastHit.collider.CompareTag("Enemy"))
+            {
+                //LevelManager.Instance.levelScore++;
+                //Instantiate(destroyEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
+                Destroy(shootRaycastHit.collider.gameObject);
+            }
         }
     }
 }

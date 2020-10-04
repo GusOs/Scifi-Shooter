@@ -16,9 +16,13 @@ public class EnemyManager : MonoBehaviour
     //Animator del enemigo
     public Animator anim;
 
+    private Collider enemyCollision;
+
     UnityEngine.AI.NavMeshAgent enemy;
 
-    NavMeshAgent ourenemy;
+    public Sound explode;
+
+    public GameObject destroyEffect;
 
 
 
@@ -27,6 +31,7 @@ public class EnemyManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
+        enemyCollision = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -35,6 +40,11 @@ public class EnemyManager : MonoBehaviour
      * si la dirección es mayor de 8, cambia de animación
     */
     void Update()
+    {
+        MovePosition(); 
+    }
+
+    private void MovePosition()
     {
         if (Vector3.Distance(player.position, this.transform.position) < distance)
         {
@@ -45,10 +55,21 @@ public class EnemyManager : MonoBehaviour
 
             if (direction.magnitude < 10)
             {
-                 enemy = GetComponent<NavMeshAgent>();
-                 enemy.SetDestination(player.position);
-                 anim.SetBool("idle", true);
+                enemy = GetComponent<NavMeshAgent>();
+                enemy.SetDestination(player.position);
+                anim.SetBool("run", true);
             }
-        } 
+        }
+    }
+
+    private void OnTriggerEnter(Collider enemyCollision)
+    {
+        if (enemyCollision.CompareTag("Player"))
+        {
+            AudioManager.Instance.PlaySound(explode);
+            //Destroy effect
+            Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
+            this.gameObject.SetActive(false);
+        }
     }
 }

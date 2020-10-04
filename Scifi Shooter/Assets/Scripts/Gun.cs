@@ -27,6 +27,8 @@ public class Gun : MonoBehaviour
 
     public GameObject destroyEffect;
 
+    public Sound explode;
+
     // Update is called once per frame
     void Update()
     {
@@ -53,8 +55,9 @@ public class Gun : MonoBehaviour
 
             if (shootRaycastHit.collider.CompareTag("Enemy"))
             {
-                //LevelManager.Instance.levelScore++;
-                //Instantiate(destroyEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
+                //GameManager.Instance.deathScore++;
+                Instantiate(destroyEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
+                AudioManager.Instance.PlaySound(explode);
                 Destroy(shootRaycastHit.collider.gameObject);
             }
         }

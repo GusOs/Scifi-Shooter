@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class ItemLife : MonoBehaviour
 {
-    private Collider keyCollision;
+    private Collider itemCollision;
+
+    public GameObject lifeEffect;
+
+    public Sound life;
 
     void Start()
     {
-        keyCollision = GetComponent<Collider>();
+        itemCollision = GetComponent<Collider>();
     }
 
     //Comprobar si ha colisionado
-    private void OnTriggerEnter(Collider keyCollision)
+    private void OnTriggerEnter(Collider itemCollision)
     {
-        if (keyCollision.CompareTag("Player"))
+        if (itemCollision.CompareTag("Player"))
         {
-            //sound effect
+            AudioManager.Instance.PlaySound(life);
             //GameManager.Instance.SetLife(); //add life
+            Instantiate(lifeEffect, this.transform.position, Quaternion.LookRotation(this.transform.position));
             this.gameObject.SetActive(false);
         }
     }

@@ -70,6 +70,7 @@ public class EnemyManager : MonoBehaviour
             //Destroy effect
             Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
             this.gameObject.SetActive(false);
+            //Destroy(destroyEffect.gameObject);
         }
     }
 }

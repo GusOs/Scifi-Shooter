@@ -2039,6 +2039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864b63c9630e4cb44b01df8d2487a8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+  life: {fileID: 11400000, guid: 2ec99ff231f183e47be94f38a008cfe1, type: 2}
 --- !u!54 &2024664655
 Rigidbody:
   m_ObjectHideFlags: 0

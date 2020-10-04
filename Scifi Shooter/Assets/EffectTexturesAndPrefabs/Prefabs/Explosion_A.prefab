@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4340403959339100}
   - component: {fileID: 198284541963469816}
   - component: {fileID: 199332925939806082}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4821,7 +4821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4164528543026860}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Explosion_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4856,7 +4856,7 @@ GameObject:
   - component: {fileID: 4351554736847806}
   - component: {fileID: 198602024190292886}
   - component: {fileID: 199316857291633430}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9668,7 +9668,7 @@ GameObject:
   - component: {fileID: 4856418394321008}
   - component: {fileID: 198679353919739006}
   - component: {fileID: 199019333588427804}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

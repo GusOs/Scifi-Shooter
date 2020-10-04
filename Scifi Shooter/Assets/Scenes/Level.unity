@@ -362,7 +362,7 @@ MonoBehaviour:
   distance: 15
   anim: {fileID: 142732596}
   explode: {fileID: 11400000, guid: df49b846a934f5341a60fb389f5d7a78, type: 2}
-  destroyEffect: {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976,
+  destroyEffect: {fileID: 1459862227383078, guid: cc461484bcafc664fb68be84c1fc6860,
     type: 3}
 --- !u!1 &143295513
 GameObject:
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   hitEffect: {fileID: 100002, guid: ba261927bb2ae4244b20b0eb77a96415, type: 3}
   shoot: {fileID: 11400000, guid: 0d2b11156ec84ab4394d9f47aa2a1f98, type: 2}
   impactForce: 5
-  destroyEffect: {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976,
+  destroyEffect: {fileID: 1459862227383078, guid: cc461484bcafc664fb68be84c1fc6860,
     type: 3}
   explode: {fileID: 11400000, guid: df49b846a934f5341a60fb389f5d7a78, type: 2}
 --- !u!1 &1826432883

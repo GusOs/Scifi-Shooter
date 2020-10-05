@@ -30,7 +30,6 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        enemy = GetComponent<NavMeshAgent>();
         enemyCollision = GetComponent<Collider>();
     }
 

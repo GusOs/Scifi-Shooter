@@ -71,6 +71,7 @@ public class EnemyManager : MonoBehaviour
             Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
             this.gameObject.SetActive(false);
             (enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer -= 25;
+            //Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
             //Destroy(shootRaycastHit.collider.gameObject);
         }
     }

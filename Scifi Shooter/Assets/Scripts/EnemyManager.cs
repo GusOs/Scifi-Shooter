@@ -70,7 +70,8 @@ public class EnemyManager : MonoBehaviour
             //Destroy effect
             Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
             this.gameObject.SetActive(false);
-            //Destroy(destroyEffect.gameObject);
+            (enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer -= 25;
+            //Destroy(shootRaycastHit.collider.gameObject);
         }
     }
 }

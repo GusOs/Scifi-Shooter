@@ -24,6 +24,7 @@ public class ItemLife : MonoBehaviour
             //GameManager.Instance.SetLife(); //add life
             Instantiate(lifeEffect, this.transform.position, Quaternion.LookRotation(this.transform.position));
             this.gameObject.SetActive(false);
+            //Destroy(shootRaycastHit.collider.gameObject);
         }
     }
 }

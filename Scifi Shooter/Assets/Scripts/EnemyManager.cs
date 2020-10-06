@@ -66,12 +66,13 @@ public class EnemyManager : MonoBehaviour
         if (enemyCollision.CompareTag("Player"))
         {
             AudioManager.Instance.PlaySound(explode);
-            //Destroy effect
             Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
-            this.gameObject.SetActive(false);
             (enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer -= 25;
             //Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
+            this.gameObject.SetActive(false);
+            GameManager.Instance.SetDeads();
             //Destroy(shootRaycastHit.collider.gameObject);
+            
         }
     }
 }

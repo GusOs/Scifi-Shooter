@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
     public Sound gameOverSound;
 
     public EnemySpawn enemySpawner;
+
+    public TMP_Text textLife;
+
+    private int score;
 
     // Start is called before the first frame update
     private void Awake()
@@ -39,25 +44,26 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.PlaySound(gameOverSound);
             isGameActive = false;
+            CheckDeads();
         }
     }
 
     public void CheckDeads()
     {
-
+        PlayerPrefs.SetInt("All deads", score);
     }
 
     public void AddDead()
     {
-
+        score++;
     }
 
     private void UpdateDead()
     {
-
+        textLife.text = score.ToString();
     }
 
-    public void CheckGameState()
+    private void CheckGameState()
     {
         StartCoroutine(SpawnEnemyCoroutine());
     }

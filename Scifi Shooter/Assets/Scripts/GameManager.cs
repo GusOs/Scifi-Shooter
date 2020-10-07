@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     //Instancia de la propia clase
     public static GameManager Instance;
 
-    //Vida jugador
-    public int lifePlayer;
+    public GameObject lifeplayer;
+
+    private PlayerMovement playerScript;
 
     public bool isGameActive;
 
@@ -17,7 +18,9 @@ public class GameManager : MonoBehaviour
 
     public EnemySpawn enemySpawner;
 
-    public TMP_Text textLife;
+    public GameObject panelGameOver;
+
+    public TMP_Text textDeaths;
 
     private int score;
 
@@ -26,6 +29,12 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         isGameActive = true;
+    }
+
+    private void Start()
+    {
+        playerScript = lifeplayer.GetComponent<PlayerMovement>();
+        Time.timeScale = 1;
     }
 
     public void SetDeads()
@@ -40,17 +49,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if(lifePlayer == 0 && isGameActive)
+        if(playerScript.lifePlayer == 0)
         {
             AudioManager.Instance.PlaySound(gameOverSound);
             isGameActive = false;
-            CheckDeads();
+            panelGameOver.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
         }
-    }
-
-    public void CheckDeads()
-    {
-        PlayerPrefs.SetInt("All deads", score);
     }
 
     public void AddDead()
@@ -60,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateDead()
     {
-        textLife.text = score.ToString();
+        textDeaths.text = score.ToString();
     }
 
     private void CheckGameState()

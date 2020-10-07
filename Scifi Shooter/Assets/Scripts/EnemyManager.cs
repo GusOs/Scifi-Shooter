@@ -68,9 +68,10 @@ public class EnemyManager : MonoBehaviour
             AudioManager.Instance.PlaySound(explode);
             Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
             (enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer -= 25;
-            //Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
-            this.gameObject.SetActive(false);
+            Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
             GameManager.Instance.SetDeads();
+            GameManager.Instance.GameOver();
+            this.gameObject.SetActive(false);
             //Destroy(shootRaycastHit.collider.gameObject);
             
         }

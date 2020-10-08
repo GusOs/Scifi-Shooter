@@ -18,6 +18,14 @@ public class GameManager : MonoBehaviour
 
     public EnemySpawn enemySpawner;
 
+    public EnemySpawn enemySpawner2;
+
+    public EnemySpawn enemySpawner3;
+
+    public ItemSpawn itemSpawner;
+
+    public ItemSpawn itemSpawner2;
+
     public GameObject panelGameOver;
 
     public TMP_Text textDeaths;
@@ -74,10 +82,26 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemyCoroutine());
     }
 
-    //spawn de cajas
+    public void CheckGameStateItem()
+    {
+        StartCoroutine(SpawnItemCoroutine());
+    }
+
+    //spawn de enemigos
     public IEnumerator SpawnEnemyCoroutine()
     {
         yield return new WaitForSeconds(1.0f);
         enemySpawner.SpawnEnemy();
+        enemySpawner2.SpawnEnemy();
+        enemySpawner3.SpawnEnemy();
+    }
+
+    //spawn de items
+    public IEnumerator SpawnItemCoroutine()
+    {
+        int wait_time = Random.Range(6, 15);
+        yield return new WaitForSeconds(wait_time);
+        itemSpawner.SpawnItem();
+        itemSpawner2.SpawnItem();
     }
 }

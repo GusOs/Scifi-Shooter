@@ -2,7 +2,7 @@
 
 public class EnemySpawn : MonoBehaviour
 {
-    //Array de prefabs de box 
+    //Array de prefabs de enemigos
     public GameObject[] enemyPrefab;
 
     void Start()
@@ -10,7 +10,7 @@ public class EnemySpawn : MonoBehaviour
         SpawnEnemy();
     }
 
-    //Método para spawnear las cajas aleatoriamente
+    //Método para spawnear los enemigos aleatoriamente
     public void SpawnEnemy()
     {
         Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], transform.position, Quaternion.identity);

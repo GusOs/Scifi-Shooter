@@ -69,13 +69,13 @@ public class GameManager : MonoBehaviour
         textDeaths.text = score.ToString();
     }
 
-    private void CheckGameState()
+    public void CheckGameState()
     {
         StartCoroutine(SpawnEnemyCoroutine());
     }
 
     //spawn de cajas
-    private IEnumerator SpawnEnemyCoroutine()
+    public IEnumerator SpawnEnemyCoroutine()
     {
         yield return new WaitForSeconds(1.0f);
         enemySpawner.SpawnEnemy();

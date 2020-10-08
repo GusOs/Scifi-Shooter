@@ -58,6 +58,7 @@ public class Gun : MonoBehaviour
                 //GameManager.Instance.deathScore++;
                 Instantiate(destroyEffect, shootRaycastHit.point, Quaternion.LookRotation(shootRaycastHit.normal));
                 AudioManager.Instance.PlaySound(explode);
+                GameManager.Instance.SetDeads();
                 Destroy(shootRaycastHit.collider.gameObject);
             }
         }

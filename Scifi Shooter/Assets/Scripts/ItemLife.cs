@@ -30,7 +30,6 @@ public class ItemLife : MonoBehaviour
             Instantiate(lifeEffect, this.transform.position, Quaternion.LookRotation(this.transform.position));
             GameManager.Instance.CheckGameStateItem();
             this.gameObject.SetActive(false);
-            //Destroy(itemCollision.collider.gameObject);
         }
     }
 }

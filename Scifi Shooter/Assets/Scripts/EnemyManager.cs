@@ -40,7 +40,8 @@ public class EnemyManager : MonoBehaviour
     */
     void Update()
     {
-        MovePosition(); 
+        MovePosition();
+        DestroyStars();
     }
 
     private void MovePosition()
@@ -71,8 +72,29 @@ public class EnemyManager : MonoBehaviour
             //Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
             GameManager.Instance.CheckGameState();
             GameManager.Instance.GameOver();
-            this.gameObject.SetActive(false);
-            //Destroy(this.destroyEffect);
+        }
+    }
+
+    public void DestroyStars()
+    {
+        GameObject[] killStars;
+        float itemLife = 2f;
+
+        killStars = GameObject.FindGameObjectsWithTag("Stars");
+        for (int i = 0; i < killStars.Length; i++)
+        {
+            Destroy(killStars[i].gameObject, itemLife);
+        }
+    }
+
+    public void DestroyHearts()
+    {
+        float itemLife = 2f;
+        GameObject[] killHearts;
+        killHearts = GameObject.FindGameObjectsWithTag("Hearts");
+        for (int i = 0; i < killHearts.Length; i++)
+        {
+            Destroy(killHearts[i].gameObject, itemLife);
         }
     }
 }

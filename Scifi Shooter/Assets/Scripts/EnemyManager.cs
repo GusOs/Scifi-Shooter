@@ -72,6 +72,7 @@ public class EnemyManager : MonoBehaviour
             //Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
             GameManager.Instance.CheckGameState();
             GameManager.Instance.GameOver();
+            GameManager.Instance.LowLife();
         }
     }
 
@@ -92,9 +93,11 @@ public class EnemyManager : MonoBehaviour
         float itemLife = 2f;
         GameObject[] killHearts;
         killHearts = GameObject.FindGameObjectsWithTag("Hearts");
-        for (int i = 0; i < killHearts.Length; i++)
         {
-            Destroy(killHearts[i].gameObject, itemLife);
+            for (int i = 0; i < killHearts.Length; i++)
+            {
+                Destroy(killHearts[i].gameObject, itemLife);
+            }
         }
     }
 }

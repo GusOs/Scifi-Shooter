@@ -104,4 +104,13 @@ public class GameManager : MonoBehaviour
         itemSpawner.SpawnItem();
         itemSpawner2.SpawnItem();
     }
+
+    public void LowLife()
+    {
+        if(playerScript.lifePlayer <= 50)
+        {
+            playerScript.playerSpeed = 1.5f;
+            playerScript.jumpHeight = 0;
+        }
+    }
 }

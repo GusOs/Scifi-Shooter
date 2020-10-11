@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         ReadInputs();
         CheckGround();
         Movement();
+        GameManager.Instance.LowLife();
     }
 
     //Leer inputs

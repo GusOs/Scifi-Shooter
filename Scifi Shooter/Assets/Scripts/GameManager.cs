@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
 
     public EnemySpawn enemySpawner2;
 
-    public EnemySpawn enemySpawner3;
-
     public ItemSpawn itemSpawner;
 
     public ItemSpawn itemSpawner2;
@@ -90,10 +88,10 @@ public class GameManager : MonoBehaviour
     //spawn de enemigos
     public IEnumerator SpawnEnemyCoroutine()
     {
-        yield return new WaitForSeconds(1.0f);
+        int wait_time = Random.Range(4, 8);
+        yield return new WaitForSeconds(wait_time);
         enemySpawner.SpawnEnemy();
         enemySpawner2.SpawnEnemy();
-        enemySpawner3.SpawnEnemy();
     }
 
     //spawn de items
@@ -111,6 +109,11 @@ public class GameManager : MonoBehaviour
         {
             playerScript.playerSpeed = 1.5f;
             playerScript.jumpHeight = 0;
+        }
+        else
+        {
+            playerScript.playerSpeed = 3.5f;
+            playerScript.jumpHeight = 1;
         }
     }
 }

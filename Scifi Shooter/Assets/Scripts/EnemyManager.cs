@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
-            if (direction.magnitude < 10)
+            if (direction.magnitude < 12)
             {
                 enemy = GetComponent<NavMeshAgent>();
                 enemy.SetDestination(player.position);
@@ -70,6 +70,7 @@ public class EnemyManager : MonoBehaviour
             Instantiate(destroyEffect, enemy.transform.position, Quaternion.LookRotation(enemy.transform.position));
             (enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer -= 25;
             //Debug.Log((enemyCollision.gameObject.GetComponent("PlayerMovement") as PlayerMovement).lifePlayer);
+            this.gameObject.SetActive(false);
             GameManager.Instance.CheckGameState();
             GameManager.Instance.GameOver();
             GameManager.Instance.LowLife();

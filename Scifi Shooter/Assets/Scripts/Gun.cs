@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
     public Transform playerCamera;
 
     //Distancia de disparo
-    public float shootDistance = 30f;
+    public float shootDistance = 60f;
 
     //Variable Raycast
     private RaycastHit shootRaycastHit;

@@ -53,7 +53,7 @@ public class EnemyManager : MonoBehaviour
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
-            if (direction.magnitude < 12)
+            if (direction.magnitude < 15)
             {
                 enemy = GetComponent<NavMeshAgent>();
                 enemy.SetDestination(player.position);

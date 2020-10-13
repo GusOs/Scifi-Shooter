@@ -16,12 +16,15 @@ public class EnemyManager : MonoBehaviour
     //Animator del enemigo
     public Animator anim;
 
+    //Colision
     private Collider enemyCollision;
 
     UnityEngine.AI.NavMeshAgent enemy;
 
+    //Audio de la explosión al morir
     public Sound explode;
 
+    //Efecto al morir
     public GameObject destroyEffect;
 
 
@@ -34,16 +37,15 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    /*Si la posición del jugador respecto al enemigo es menor que la distancia
-     * Siempre busca al jugador
-     * si la dirección es mayor de 8, cambia de animación
-    */
     void Update()
     {
         MovePosition();
         DestroyStars();
     }
 
+    /*Si la posición entre jugador y enemigo es menor a 15
+     * el enemigo se dirige a él con la animación run
+     */
     private void MovePosition()
     {
         if (Vector3.Distance(player.position, this.transform.position) < distance)
@@ -62,6 +64,15 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    /* Cuando el enemigo colisione con el jugador
+     * reproduce sonido de explosion
+     * Instancia el efecto
+     * Le quita 25 de vida al jugador
+     * Desactiva el enemigo
+     * Spawnea un nuevo enemigo
+     * Comprueba si el juego ha acabado
+     * Comprueba si el jugador tiene 50 o menos de vida
+     */
     private void OnTriggerEnter(Collider enemyCollision)
     {
         if (enemyCollision.CompareTag("Player"))
@@ -77,6 +88,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    //Destruye el efecto de la explosion
     public void DestroyStars()
     {
         GameObject[] killStars;
@@ -86,19 +98,6 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < killStars.Length; i++)
         {
             Destroy(killStars[i].gameObject, itemLife);
-        }
-    }
-
-    public void DestroyHearts()
-    {
-        float itemLife = 2f;
-        GameObject[] killHearts;
-        killHearts = GameObject.FindGameObjectsWithTag("Hearts");
-        {
-            for (int i = 0; i < killHearts.Length; i++)
-            {
-                Destroy(killHearts[i].gameObject, itemLife);
-            }
         }
     }
 }

@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class ItemLife : MonoBehaviour
 {
+    //Colision
     private Collider itemCollision;
 
+    //Efecto al colisionar
     public GameObject lifeEffect;
 
+    //Audio al colisionar
     public Sound life;
 
+    //Referencia a la vida del jugador
     public GameObject lifeplayer;
 
+    //Referencia al script del jugador
     private PlayerMovement playerScript;
 
     void Start()
@@ -19,7 +24,13 @@ public class ItemLife : MonoBehaviour
         itemCollision = GetComponent<Collider>();
     }
 
-    //Comprobar si ha colisionado
+    /*Comprobar si ha colisionado con el jugador
+     * Reproducir audio de vida
+     * añadir 25 de vida al jugador
+     * Instanciar el efecto de vida
+     * Spawner más items
+     * desactivar el item
+    */
     private void OnTriggerEnter(Collider itemCollision)
     {
         if (itemCollision.CompareTag("Player"))

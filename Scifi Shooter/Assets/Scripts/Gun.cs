@@ -23,10 +23,13 @@ public class Gun : MonoBehaviour
     //Audio disparo
     public Sound shoot;
 
+    //Fueza de impacto
     public float impactForce = 5f;
 
+    //Efecto de explosion
     public GameObject destroyEffect;
 
+    //Audio de explosion
     public Sound explode;
 
     // Update is called once per frame
@@ -38,6 +41,14 @@ public class Gun : MonoBehaviour
         }
     }
 
+    /* Activa las partículas 
+     * Reproduce el sonido de disparo
+     * Instancia el efecto en el objeto
+     * si este es el enemigo
+     * Reproduce sonido de explosión
+     * cuenta un muerto
+     * y destruye el efecto de disparo
+     */
     private void Shoot()
     {
         shootParticles.Play();

@@ -12,7 +12,7 @@ public class ItemSpawn : MonoBehaviour
         SpawnItem();
     }
 
-    //Método para spawnear los corazones aleatoriamente
+    //Método para spawnear los corazones aleatoriamente e instanciarlos en la posición que uno quiera
     public void SpawnItem()
     {
         Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);

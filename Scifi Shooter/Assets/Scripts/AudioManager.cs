@@ -47,6 +47,7 @@ public class AudioManager : MonoBehaviour
         FxAudioSource.Play();
     }
 
+    //Comprueba lo mismo que es PlaySound para poder detener la música
     public void StopSound(Sound sound)
     {
         if (sound.soundType == Sound.SoundType.MUSIC)
